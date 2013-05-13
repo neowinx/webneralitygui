@@ -57,27 +57,20 @@
 									<select id="selFramework" data-bind="options: filteredFrameworks(), value:framework, optionsText: 'nombre'"></select>
 								</td>
 							</tr>
-							
-							<!-- Seam 2.2.0 G.A. -->
-							
-							<tr data-bind="visible: framework().nombre == 'Seam 2.0.0 GA'">
-								<td><label class="control-label" for="mainPackage">Paquete principal:</label></td>
-								<td>
-									<input id="mainPackage" type="text" value="py.com.codelab" />
-								</td>
-							</tr>
-							<tr data-bind="visible: framework().nombre == 'Seam 2.0.0 GA'">
-								<td><label class="control-label" for="entityPackage">Paquete de entidades:</label></td>
-								<td>
-									<input id="entityPackage" type="text" value="py.com.codelab" />
-								</td>
-							</tr>
-
 						</table>
 					</form>
 				</div>
 				<div class="span9 editor">
-					EDITOR
+					<table class="table table-bordered" data-bind="visible: framework().variables">
+						<tbody data-bind="foreach: framework().variables">
+							<tr data-bind="visible: $data.visible">
+								<td><label class="control-label" data-bind="attr: { 'for': $data.nombre }, text: $data.nombre"></label></td>
+								<td>
+									<input type="text" data-bind="attr: { 'id': $data.nombre }, value:$data.valorPorDefecto" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
