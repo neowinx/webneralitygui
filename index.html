@@ -19,12 +19,6 @@
 		
 		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
 		<link type="text/css" href="css/style.css" rel="stylesheet" />
-		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="js/knockout-2.2.1.js"></script>
-		<script type="text/javascript" src="js/raphael.js"></script>
-		<script type="text/javascript" src="js/underscore-min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		
 	</head>
 
 	<body>
@@ -48,23 +42,52 @@
 		
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span2 sidebar">
-					<form class="form-inline">
-						<label class="label">LAVELO</label>
-						<button class="btn">Pochoclo</button>
-						<select>
-							<option value="SQLite">SQLite</option>
-							<option value="MySQL">MySQL</option>
-							<option value="PostgreSQL">PostgreSQL</option>
-							<option value="Oracle">Oracle</option>
-						</select>
+				<div class="span3 sidebar">
+					<form>
+						<table class="table table-bordered">
+							<tr>
+								<td><label class="control-label" for="selTipoProyecto">Tipo Proyecto:</label></td>
+								<td>
+									<select id="selTipoProyecto" data-bind="options: tiposDeProyecto, value:tipoDeProyecto ,optionsText:'nombre'"></select>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="control-label" for="selFramework">Framework:</label></td>
+								<td>
+									<select id="selFramework" data-bind="options: filteredFrameworks(), value:framework, optionsText: 'nombre'"></select>
+								</td>
+							</tr>
+							
+							<!-- Seam 2.2.0 G.A. -->
+							
+							<tr data-bind="visible: framework().nombre == 'Seam 2.0.0 GA'">
+								<td><label class="control-label" for="mainPackage">Paquete principal:</label></td>
+								<td>
+									<input id="mainPackage" type="text" value="py.com.codelab" />
+								</td>
+							</tr>
+							<tr data-bind="visible: framework().nombre == 'Seam 2.0.0 GA'">
+								<td><label class="control-label" for="entityPackage">Paquete de entidades:</label></td>
+								<td>
+									<input id="entityPackage" type="text" value="py.com.codelab" />
+								</td>
+							</tr>
+
+						</table>
 					</form>
 				</div>
-				<div class="span10 editor">
+				<div class="span9 editor">
 					EDITOR
 				</div>
 			</div>
 		</div>
+
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/knockout-2.2.1.js"></script>
+		<script type="text/javascript" src="js/raphael.js"></script>
+		<script type="text/javascript" src="js/underscore-min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/w.js"></script>
 
 	</body>
 </html>

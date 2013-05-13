@@ -2,12 +2,19 @@
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-	background-color: #FAFAFA;
+/*
+	background-color: #DDDDDD;
+	text-align: left;*/
+
+}
+
+.sidebar input[type=*], select {
+	width: 100%;
 }
 
 .editor {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-	background-color: #1F6377;
+	background-color: #DDDDDD;
 }
